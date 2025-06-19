@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Level - ASL Practice</title>
+    <link rel="stylesheet" href="{% static 'css/select_level.css' %}">
+    <style>
+        body {
+            background: url("{% static 'media/icons/bg-img.jpeg' %}") no-repeat center fixed;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.85); 
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 800px;
+            height: 800px;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select Your Practice Level</h1>
+
+        <div class="level-buttons" style="margin-top: 150px;">
+            <a href="{% url 'practice' 'level-1' %}"><button>Level 1 - Easy</button></a>
+            <a href="{% url 'practice' 'level-2' %}"><button>Level 2 - Medium</button></a>
+            <a href="{% url 'practice' 'level-3' %}"><button>Level 3 - Hard</button></a>
+            <a href="{% url 'practice' 'level-4' %}"><button>Level 4 - Words</button></a>
+        </div>
+
+        <div class="homepage-link">
+            <a href="{% url 'aslearn' %}">Go to Homepage</a>
+        </div>
+    </div>
+</body>
+</html>

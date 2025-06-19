@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ASL Performance</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="performance-container">
+        <h2>Your ASL Practice Performance</h2>
+        {% if user_performance %}
+            <table class="performance-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Level</th>
+                        <th>Letter/Word</th>
+                        <th>Accuracy (%)</th>
+                        <th>Frames Taken</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for practice in user_performance %}
+                    <tr>
+                        <td>{{ practice.timestamp|date:"Y-m-d H:i" }}</td>
+                        <td>{{ practice.level }}</td>
+                        <td>{{ practice.target_text }}</td>
+                        <td>{{ practice.accuracy|floatformat:2 }}</td>
+                        <td>{{ practice.frames_taken }}</td>
+                        <td>{{ practice.score|floatformat:2 }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="no-records">No performance records found. Start practicing!</p>
+        {% endif %}
+        <div>
+            <a href="{% url 'aslearn' %}">Go to Homepage</a>
+        </div>
+    </div>
+</body>
+</html>
+
+

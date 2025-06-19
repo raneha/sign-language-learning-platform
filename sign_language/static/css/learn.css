@@ -1,0 +1,21 @@
+.container {
+    text-align: center;
+    padding: 20px;
+}
+.video-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card {
+    padding: 10px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+video {
+    width: 100%;
+    border-radius: 5px;
+}
+h3 {
+    margin-top: 10px;
+}

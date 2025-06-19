@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ASL Learn</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+{% if user.is_authenticated %}
+  <!-- Navbar -->
+<header class="bg-white shadow">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-indigo-600">ASLearn</h1>
+
+    <div class="flex justify-start gap-4 mt-4">
+      <img src="{% static 'media/Icons/a sign.webp' %}" alt="A sign" class="w-18 h-20" />
+      <img src="{% static 'media/Icons/s sign.webp' %}" alt="S sign" class="w-18 h-20" />
+      <img src="{% static 'media/Icons/L sign.webp' %}" alt="L sign" class="w-18 h-20" />
+      <img src="{% static 'media/Icons/e sign.webp' %}" alt="E sign" class="w-18 h-20" />
+      <img src="{% static 'media/Icons/a sign.webp' %}" alt="A sign" class="w-18 h-20" />
+      <img src="{% static 'media/Icons/r sign.webp' %}" alt="R sign" class="w-18 h-20" />
+      <img src="{% static 'media/Icons/N sign.webp' %}" alt="N sign" class="w-18 h-20" />
+    </div>
+
+    <nav class="space-x-6">
+      <a href="{% url 'logout' %}" class="hover:text-red-600 font-medium">Logout</a>
+    </nav>
+  </div>
+</header>
+
+
+  <!-- Hero Section -->
+<section class="text-white py-20" style="background-color: #2f4384;">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center">
+    <div class="md:w-1/2 mb-8 md:mb-0 text-center md:text-left">
+      <h2 class="text-4xl font-bold mb-4">Welcome to the ASL Learning Platform!</h2>
+      <p class="text-lg mb-6">
+        Our interactive platform helps users learn American Sign Language (ASL) through real-time gesture recognition. 
+        The system processes hand gestures from a webcam, identifies ASL signs, and provides instant feedback.
+      </p>
+      <div class="space-x-4">
+        <a href="#modes" class="px-6 py-3 text-white font-semibold rounded-lg hover:bg-yellow-500 transition" style="background-color: #FFB343;">Get Started</a>
+      </div>
+    </div>
+    <div class="md:w-1/2 flex justify-center">
+      <img src="{% static 'media/icons/side-img.png' %}" alt="ASL hands illustration" class="w-64 h-64">
+    </div>
+  </div>
+</section>
+
+
+
+<section id="modes" class="py-16">
+  <div class="max-w-6xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-center mb-12">Choose Your Mode</h3>
+
+    <!-- Top Row: Learn and Practice -->
+    <div class="flex flex-col md:flex-row justify-center gap-8 mb-8">
+      
+      <!-- Learn Card -->
+      <div id="learn" class="w-[600px] bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center hover:shadow-xl transition">
+        <div class="bg-blue-100 p-6 rounded-full mb-6">
+          <img src="{% static 'media/icons/learn-img.png' %}" alt="Learn Icon" class="w-12 h-12 object-contain" />
+        </div>
+        <h4 class="text-xl font-semibold mb-4">Learn</h4>
+        <p class="text-center text-gray-600 mb-6">Watch fingerspelling demo videos to learn ASL signs.</p>
+        <a href="{% url 'learn' %}" class="mt-auto px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">Start Learning</a>
+      </div>
+
+      <!-- Practice Card -->
+      <div id="practice" class="w-[600px] bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center hover:shadow-xl transition">
+        <div class="bg-green-100 p-6 rounded-full mb-6">
+          <img src="{% static 'media/icons/practice-img.png' %}" alt="Practice Icon" class="w-12 h-12 object-contain" />
+        </div>
+        <h4 class="text-xl font-semibold mb-4">Practice</h4>
+        <p class="text-center text-gray-600 mb-6">Use your webcam to practice signs live and receive instant feedback.</p>
+        <a href="{% url 'select_level' %}" class="mt-auto px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">Practice Now</a>
+      </div>
+
+    </div>
+
+    <!-- Bottom Row: Centered Performance Card -->
+    <div class="flex justify-center">
+      <div class="w-[600px] bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center hover:shadow-xl transition">
+        <div class="bg-yellow-100 p-6 rounded-full mb-6">
+          <img src="{% static 'media/icons/performance-img.png' %}" alt="Performance Icon" class="w-12 h-12 object-contain" />
+        </div>
+        <h4 class="text-xl font-semibold mb-4">Performance</h4>
+        <p class="text-center text-gray-600 mb-6">View your progress and results over time.</p>
+        <a href="{% url 'performance' %}" class="mt-auto px-6 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition">Show Performance</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+ 
+  <!-- Footer -->
+  <footer class="bg-gray-200 py-6">
+    <div class="max-w-6xl mx-auto px-6 text-center text-gray-700">
+      <p>© 2025 ASLearn </p>
+    </div>
+  </footer>
+
+{% else %}
+  <script>
+    window.location.href = "{% url 'login' %}";
+  </script>
+{% endif %}
+
+</body>
+</html>

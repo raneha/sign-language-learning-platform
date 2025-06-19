@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learn Sign Language</title>
+    <link rel="stylesheet" href="{% static 'css/learn.css' %}">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <div class="container">
+
+        <div class="video-grid" style="gap: 30px;padding-left: 120px;">
+            {% for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
+                <div class="card w-[250px] border inline-block m-2 rounded shadow-[0px_4px_8px_black] transition duration-1000 hover:shadow-[0px_8px_16px_goldenrod]">
+                    <video src="{% static 'media/VideoSign/' %}{{ letter }}.mp4" muted loop class="w-full rounded"></video>
+                    <div class="px-1 text-center">
+                        <h3 class="desc text-lg font-semibold mt-2">{{ letter }}</h3>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+            <div style="padding-left: 100px;">
+                <a href="{% url 'aslearn' %}">Go to Homepage...</a>
+            </div>
+        </div>
+        <script src="{% static 'js/aslearn.js' %}"></script>
+    {% else %}
+        <script>
+            window.location.href = "{% url 'login' %}";
+        </script>
+    {% endif %}
+</body>
+</html>

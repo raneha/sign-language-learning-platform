@@ -1,0 +1,46 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 {
+    color: #333;
+    font-size: 28px;
+}
+
+.level-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.level-buttons button {
+    padding: 15px;
+    font-size: 20px;
+    margin: 10px;
+    width: 200px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.level-buttons button:hover {
+    background-color: #218838;
+}
+
+.homepage-link {
+    margin-top: 20px;
+}
+
+.homepage-link a {
+    font-size: 18px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.homepage-link a:hover {
+    text-decoration: underline;
+}

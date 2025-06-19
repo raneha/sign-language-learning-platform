@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ASL Practice</title>
+    <link rel="stylesheet" href="{% static 'css/practice.css' %}">
+    <script>
+        var currentLevel = "{{ level }}";
+        var currentWord = "{{ current_word|default:'' }}";
+        var completedPart = "{{ completed_part|default:'' }}";
+        var targetLetter = "{{ target_text }}";
+        var videoUrl = "{% static video_url %}";
+    </script>
+    <script src="{% static 'js/practice.js' %}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>ASL Practice - {{ level }}</h1>
+        {% if level == "level-4" %}
+            <h2>Word: {{ current_word }}</h2>
+            <h3>Completed: {{ completed_part }}</h3>
+            <h2>Perform Letter: <span id="target">{{ target_text }}</span></h2>
+        {% else %}
+            <h2>Perform: <span id="target">{{ target_text }}</span></h2>
+        {% endif %}
+
+        <div class="video-container">
+            <video id="reference-video" style="width: 300px; " src="{% static video_url %}" autoplay loop muted></video>
+            <div id="detection-container">
+                <video id="webcam-feed" autoplay></video>
+                <canvas id="detection-overlay"></canvas>
+            </div>
+        </div>
+ 
+    
+        <div id="success-message" style="color: green; font-weight: bold; margin: 10px;"></div>
+        <button id="next-btn" style="display: none;" onclick="goToNext()">
+            {% if level == "level-4" %}Continue{% else %}Next{% endif %}
+        </button>
+    </div>
+           <div style="position: fixed; bottom: 10px; width: 100%; text-align: center;">
+                <a href="{% url 'aslearn' %}">Go to Homepage...</a>
+            </div>
+
+
+    <script>
+        function goToNext() {
+            window.location.href = "/practice/{{ level }}/next/";
+        }
+    </script>
+</body>
+</html>

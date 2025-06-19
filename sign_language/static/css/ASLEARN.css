@@ -1,0 +1,40 @@
+.container {
+    text-align: center;
+    padding: 20px;
+}
+.asl-line {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+.asl-item {
+    text-align: center;
+}
+.asl-item img {
+    width: 100px;
+    height: auto;
+}
+.letter {
+    font-size: 18px;
+    font-weight: bold;
+}
+.buttons {
+    margin-top: 20px;
+}
+button {
+    padding: 10px 20px;
+    background-color: #005F73;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0A9396;
+}
+.logout-btn {
+    display: block;
+    margin-top: 20px;
+    color: red;
+    text-decoration: none;
+}
