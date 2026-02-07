@@ -39,6 +39,8 @@ ASLearn provides a real-time, affordable, and interactive learning platform that
 
 ![Login Page](screenshots/login.png)
 
+![Sign Up Page](screenshots/signup.png)
+
 - Secure login and signup system
 - User session handling
 - Personalized access
@@ -46,7 +48,9 @@ ASLearn provides a real-time, affordable, and interactive learning platform that
 
 ### 🏠 Home Dashboard
 
-![Home Page](screenshots/home.png)
+![Home Page](screenshots/home1.png)
+
+![Home Page](screenshots/home2.png)
 
 - Learn Mode
 - Practice Mode
@@ -64,6 +68,8 @@ ASLearn provides a real-time, affordable, and interactive learning platform that
 
 
 ### 🎯 Practice Mode – Real-Time Detection
+
+![Levels](screenshots/level.png)
 
 ![Practice Mode](screenshots/practice.png)
 
